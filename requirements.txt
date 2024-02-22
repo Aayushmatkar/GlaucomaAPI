@@ -3,6 +3,6 @@ uvicorn
 tensorflow-cpu
 numpy
 Pillow
-requests
+
 
 
