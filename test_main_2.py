@@ -5,6 +5,7 @@ from pydantic import BaseModel
 import tensorflow as tf
 from keras.preprocessing import image
 import numpy as np
+import requests
 
 app = FastAPI()
 
@@ -21,6 +22,12 @@ class ImagePayload(BaseModel):
     # return {
         # "foo":"bar"
     # }
+# Endpoint to make predictions0
+import requests
+
+url = "https://glaucoma-detection-api-52f531d65dd6.herokuapp.com/predict"
+files = {"file": open("glauc True 1.png", 'rb')}
+res = requests.post(url, files=files)
 
 
 # Endpoint to make predictions
