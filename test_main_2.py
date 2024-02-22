@@ -23,11 +23,11 @@ class ImagePayload(BaseModel):
         # "foo":"bar"
     # }
 # Endpoint to make predictions0
-import requests
+# import requests
 
-url = "https://glaucoma-detection-api-52f531d65dd6.herokuapp.com/predict"
-files = {"file": open("glauc True 1.png", 'rb')}
-res = requests.post(url, files=files)
+# url = "https://glaucoma-detection-api-52f531d65dd6.herokuapp.com/predict"
+# files = {"file": open("glauc True 1.png", 'rb')}
+# res = requests.post(url, files=files)
 
 
 # Endpoint to make predictions
