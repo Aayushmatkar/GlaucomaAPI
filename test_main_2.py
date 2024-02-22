@@ -13,15 +13,15 @@ app = FastAPI()
 #model = tf.keras.models.load_model('csa_glaucoma1.h5')
 
 # Define the request payload using Pydantic BaseModel
-class ImagePayload(BaseModel):
-    image_url: str
+# class ImagePayload(BaseModel):
+#     image_url: str
 
 
-# @app.get("/")
-# def foobar():
-    # return {
-        # "foo":"bar"
-    # }
+@app.get("/")
+def foobar():
+    return {
+        "foo":"bar"
+    }
 # Endpoint to make predictions0
 # import requests
 
