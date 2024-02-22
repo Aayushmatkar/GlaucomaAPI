@@ -16,15 +16,15 @@ class ImagePayload(BaseModel):
     image_url: str
 
 
-@app.get("/")
-def foobar():
-    return {
-        "foo":"bar"
-    }
+# @app.get("/")
+# def foobar():
+    # return {
+        # "foo":"bar"
+    # }
 
 
 # Endpoint to make predictions
-@app.get("/predict")
+@app.get("/")
 async def predict_image():
         
         # Load the saved model
