@@ -35,9 +35,9 @@ def foobar():
 async def predict_image():
         
         # Load the saved model
-        model = tf.keras.models.load_model('csa_glaucoma1.h5')
+        model = tf.keras.models.load_model('./csa_glaucoma1.h5')
     
-        pic = "glaucoma false.png"
+        pic = "./glaucoma false.png"
         # Download and preprocess the image
         img = image.load_img(pic, target_size=(150, 150))
         img_array = image.img_to_array(img)
