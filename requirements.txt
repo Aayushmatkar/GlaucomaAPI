@@ -4,7 +4,6 @@ pydantic==2.6.1
 scikit-learn==1.2.2
 numpy==1.26.4
 gunicorn==21.2.0
-tensorflow-cpu
 Pillow==8.3.2
 
 
