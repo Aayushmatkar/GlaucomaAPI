@@ -8,7 +8,7 @@ app = FastAPI()
 
 # Load the saved model
 model = tf.keras.models.load_model('small_model_pipeline.pkl')
-
+scaler = pickle.load(open('Glaucoma_scaker.pkl', 'rb'))
 @app.post("/predict")
 async def predict_image(file: UploadFile = File(...)):
     # Check if the uploaded file is an image
