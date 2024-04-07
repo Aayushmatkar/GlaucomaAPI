@@ -2,17 +2,18 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from PIL import Image
 import numpy as np
 from io import BytesIO
-import tensorflow as tf
+import pickle
 
 app = FastAPI()
 
 # Load the saved model
-model = tf.keras.models.load_model('small_model_pipeline.pkl')
+model = pickle.load(open('small_model_pipeline.pkl', 'rb'))
 scaler = pickle.load(open('Glaucoma_scaker.pkl', 'rb'))
+
 @app.post("/predict")
 async def predict_image(file: UploadFile = File(...)):
     # Check if the uploaded file is an image
-    if file.content_type.startswith('image/') is False:
+    if not file.content_type.startswith('image/'):
         raise HTTPException(status_code=415, detail="Unsupported media type")
 
     # Read the image file
@@ -21,8 +22,9 @@ async def predict_image(file: UploadFile = File(...)):
 
     # Preprocess the image
     image = image.resize((150, 150))  # Resize to match model input size
-    img_array = np.array(image) / 255.0  # Convert to numpy array and normalize pixel values
-    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+    img_array = np.array(image)  # Convert to numpy array
+    img_array = img_array.reshape(1, -1)  # Flatten the image
+    img_array = scaler.transform(img_array)  # Scale the image data
 
     # Make predictions using the loaded model
     prediction = model.predict(img_array)
