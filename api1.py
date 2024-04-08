@@ -7,7 +7,7 @@ import tensorflow as tf
 app = FastAPI()
 
 # Load the saved model
-model = tf.keras.models.load_model('small_model.h5')
+model = tf.keras.models.load_model('rmy_model.keras')
 #scaler = pickle.load(open('Glaucoma_scaker.pkl', 'rb'))
 
 @app.post("/predict")
